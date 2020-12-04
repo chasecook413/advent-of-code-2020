@@ -1,10 +1,6 @@
 const fs = require('fs');
 
 function positionsCorrect(str, letter, positionOne, positionTwo) {
-    if (str[positionOne - 1] == letter && str[positionTwo-1] === letter) {
-        return false;
-    }
-
     if (str[positionOne - 1] !== letter && str[positionTwo-1] === letter) {
         return true;
     }
@@ -18,7 +14,7 @@ function positionsCorrect(str, letter, positionOne, positionTwo) {
 
 function numOccurrences(str, letter) {
     let count = 0;
-    for (s of str) {
+    for (const s of str) {
         if (s === letter) {
             count++;
         }
@@ -56,5 +52,9 @@ function parsePasswords(rawInput) {
     return sum;
 }
 
-const data = fs.readFileSync('./day-2-input.txt');
-console.log(parsePasswords(data));
+function main() {
+    const data = fs.readFileSync('./day-2-input.txt');
+    console.log(parsePasswords(data));
+}
+
+main();
